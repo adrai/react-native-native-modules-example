@@ -3,8 +3,18 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest"
+    "start": "npm run start:ios",
+    "bundle": "npm run bundle:ios && npm run bundle:android",
+    "bundle:ios": "react-native bundle --platform ios  --dev false --assets-dest ./ios --entry-file index.ios.js --bundle-output ios/main.jsbundle",
+    "bundle:android": "react-native bundle --platform android --dev false --entry-file index.android.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/",
+    "start:ios": "node node_modules/react-native/local-cli/cli.js run-ios --simulator \"iPhone SE\"",
+    "start:ios:ipad": "node node_modules/react-native/local-cli/cli.js run-ios --simulator \"iPad Air\"",
+    "start:ios:release": "node node_modules/react-native/local-cli/cli.js run-ios --simulator \"iPhone SE\" --configuration Release",
+    "start:ios:device": "node node_modules/react-native/local-cli/cli.js run-ios --device --configuration Release",
+    "start:android": "node node_modules/react-native/local-cli/cli.js run-android",
+    "start:android:release": "node node_modules/react-native/local-cli/cli.js run-android --variant release",
+    "test": "jest",
+    "debugger": "which rndebugger-open && rndebugger-open || echo \"rndebugger-open not found\""
 	},
 	"dependencies": {
 		"react": "15.4.1",
@@ -14,6 +24,7 @@
 		"babel-jest": "17.0.2",
 		"babel-preset-react-native": "1.9.0",
 		"jest": "17.0.3",
+    "react-native-debugger-open": "0.3.2",
 		"react-test-renderer": "15.4.1"
 	},
 	"jest": {

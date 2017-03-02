@@ -22,6 +22,11 @@ class devdactic_nativeModules extends Component {
     this.state = {
       number: 0
     };
+
+    MyModule.elapsedTimeSinceBoot((err, res) => {
+      if (err) console.error(err);
+      console.warn(res);
+    });
   }
 
   // 4
