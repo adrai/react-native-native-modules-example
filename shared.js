@@ -26,6 +26,7 @@ class devdactic_nativeModules extends Component {
     MyModule.elapsedTimeSinceBoot((err, res) => {
       if (err) console.error(err);
       console.warn(res);
+      this.setState({elapsed: res});
     });
   }
 
@@ -39,6 +40,9 @@ class devdactic_nativeModules extends Component {
       <TextInput style={styles.input} onChangeText={(text) => this.squareMe(text)}/>
       <Text style={styles.result}>
       {this.state.number}
+      </Text>
+      <Text>
+      {this.state.elapsed}
       </Text>
       </View>
     );
