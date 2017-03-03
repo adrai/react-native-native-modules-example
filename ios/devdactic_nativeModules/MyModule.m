@@ -30,7 +30,7 @@ RCT_EXPORT_METHOD(elapsedTimeSinceBoot:(RCTResponseSenderBlock)callback) {
       uptime = ((long long int)(now.tv_sec - boottime.tv_sec)) * 1000;
       uptime += (now.tv_usec - boottime.tv_usec) / 1000;
   }
-  callback(@[[NSNull null], [NSNumber numberWithInt:(uptime)]]);
+  callback(@[[NSNull null], [NSNumber numberWithDouble:(uptime)]]);
 }
 
 @end

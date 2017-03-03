@@ -34,8 +34,8 @@ public class MyModule extends ReactContextBaseJavaModule {
   // Available as NativeModules.MyCustomModule.elapsedTimeSinceBoot
   @ReactMethod
   public void elapsedTimeSinceBoot(Callback callback) {
-      long elapsedTime = SystemClock.elapsedRealtime();
-      callback.invoke(null, (int) (long) elapsedTime);
+      double elapsedTime = SystemClock.elapsedRealtime();
+      callback.invoke(null, elapsedTime);
   }
 
   @Override
